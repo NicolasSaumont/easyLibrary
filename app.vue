@@ -6,7 +6,7 @@ import Home from './src/pages/Home.vue';
 <template>
   <div>
     <Navbar />
-    <Home />
+    <!-- <Home /> -->
   </div>
 </template>
 
@@ -23,5 +23,9 @@ body {
 }
 ul {
   list-style: none;
+}
+button {
+  border: none;
+  font-size: 1rem;
 }
 </style>

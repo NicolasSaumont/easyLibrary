@@ -1,4 +1,15 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Button from './Button.vue';
+
+const connected = true;
+
+const addBookButtonLabel = '+ Ajouter un livre';
+const profileButtonLabel = 'Mon profil';
+
+defineProps({
+  addButtonLabel: String,
+});
+</script>
 
 <template>
   <div class="navbar">
@@ -17,8 +28,8 @@
       </ul>
     </div>
     <div class="action">
-      <Button>+ Ajouter un livre</Button>
-      <Button>Mon profil</Button>
+      <Button :buttonText="addBookButtonLabel" />
+      <Button v-if="connected" :button-text="profileButtonLabel" />
     </div>
   </div>
 </template>
@@ -41,13 +52,14 @@
 }
 .navigation-items {
   display: flex;
-  margin: 0 1em;
+  margin: 0 2em;
   align-items: center;
 }
 .navigation-item {
   padding: 1em;
   margin: 1em;
   border-radius: 0.5em;
+  transition: all 0.2s ease-in-out;
 }
 .navigation-item:hover {
   cursor: pointer;
