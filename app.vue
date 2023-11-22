@@ -6,11 +6,12 @@ import Home from './src/pages/Home.vue';
 <template>
   <div>
     <Navbar />
-    <Home />
+    <!-- <Home /> -->
   </div>
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,8 +19,13 @@ import Home from './src/pages/Home.vue';
 }
 body {
   background-color: #f3f4f6;
+  font-family: 'Montserrat', sans-serif;
 }
 ul {
   list-style: none;
+}
+button {
+  border: none;
+  font-size: 1rem;
 }
 </style>
