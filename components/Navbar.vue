@@ -15,21 +15,19 @@ defineProps({
   <div class="navbar">
     <div class="navigation">
       <a href="/">
-        <img
-          class="logo"
-          src="../../public/logo_easyLibrary.png"
-          alt="easyLibrary"
-        />
+        <img class="logo" src="/logo_easyLibrary.png" alt="easyLibrary" />
       </a>
       <ul class="navigation-items">
-        <li class="navigation-item active">Tableau de bord</li>
-        <li class="navigation-item">Mes livres</li>
-        <li class="navigation-item">Calendrier</li>
+        <a href="/"><li class="navigation-item active">Tableau de bord</li></a>
+        <a href="/livres"><li class="navigation-item">Mes livres</li></a>
+        <a href="/calendrier"><li class="navigation-item">Calendrier</li></a>
       </ul>
     </div>
     <div class="action">
       <Button :buttonText="addBookButtonLabel" />
-      <Button v-if="connected" :button-text="profileButtonLabel" />
+      <a href="/profil">
+        <Button v-if="connected" :button-text="profileButtonLabel" />
+      </a>
     </div>
   </div>
 </template>
@@ -54,6 +52,9 @@ defineProps({
   display: flex;
   margin: 0 2em;
   align-items: center;
+}
+.navigation-items a {
+  color: #f8f8f8;
 }
 .navigation-item {
   padding: 1em;
