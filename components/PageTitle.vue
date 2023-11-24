@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+defineProps({
+  text: {
+    type: String,
+    required: true,
+  },
+});
+</script>
+
 <template>
-  <h1>Titre</h1>
+  <h1>{{ text }}</h1>
 </template>
