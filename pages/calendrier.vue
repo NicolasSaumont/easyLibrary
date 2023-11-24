@@ -1,5 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import PageTitle from '~/components/PageTitle.vue';
+
+const pageCalendarTitle = 'Calendrier';
+</script>
+
 <template>
-  <h1>Calendrier</h1>
+  <PageTitle :text="pageCalendarTitle" />
 </template>
 <style></style>
