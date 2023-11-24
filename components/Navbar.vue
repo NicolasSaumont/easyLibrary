@@ -14,22 +14,26 @@ defineProps({
 <template>
   <div class="navbar">
     <div class="navigation">
-      <a href="/">
+      <nuxt-link to="/" href="/">
         <img class="logo" src="/logo_easyLibrary.png" alt="easyLibrary" />
-      </a>
+      </nuxt-link>
       <ul class="navigation-items">
-        <a href="/" class="active"
-          ><li class="navigation-item">Tableau de bord</li></a
-        >
-        <a href="/livres"><li class="navigation-item">Mes livres</li></a>
-        <a href="/calendrier"><li class="navigation-item">Calendrier</li></a>
+        <nuxt-link to="/" class="active">
+          <li class="navigation-item">Tableau de bord</li>
+        </nuxt-link>
+        <nuxt-link to="/livres">
+          <li class="navigation-item">Mes livres</li>
+        </nuxt-link>
+        <nuxt-link to="/calendrier">
+          <li class="navigation-item">Calendrier</li>
+        </nuxt-link>
       </ul>
     </div>
     <div class="action">
       <Button :buttonText="addBookButtonLabel" />
-      <a href="/profil">
+      <nuxt-link to="/profil">
         <Button v-if="connected" :button-text="profileButtonLabel" />
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>
