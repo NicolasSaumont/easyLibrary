@@ -1,5 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import PageTitle from '~/components/PageTitle.vue';
+
+const pageProfileTitle = 'Profil';
+</script>
+
 <template>
-  <h1>Mon profil</h1>
+  <PageTitle :text="pageProfileTitle" />
 </template>
 <style></style>
