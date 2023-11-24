@@ -18,7 +18,9 @@ defineProps({
         <img class="logo" src="/logo_easyLibrary.png" alt="easyLibrary" />
       </a>
       <ul class="navigation-items">
-        <a href="/"><li class="navigation-item active">Tableau de bord</li></a>
+        <a href="/" class="active"
+          ><li class="navigation-item">Tableau de bord</li></a
+        >
         <a href="/livres"><li class="navigation-item">Mes livres</li></a>
         <a href="/calendrier"><li class="navigation-item">Calendrier</li></a>
       </ul>
@@ -50,23 +52,21 @@ defineProps({
 }
 .navigation-items {
   display: flex;
-  margin: 0 2em;
   align-items: center;
+  margin: 0 2em;
 }
 .navigation-items a {
   color: #f8f8f8;
-}
-.navigation-item {
   padding: 1em;
-  margin: 1em;
+  margin: 0 0.5em;
   border-radius: 0.5em;
   transition: all 0.2s ease-in-out;
 }
-.navigation-item:hover {
+.navigation-items a:hover {
   cursor: pointer;
   background-color: #111827;
 }
-.navigation-item.active {
+.navigation-items a.active {
   background-color: #111827;
 }
 .action {
