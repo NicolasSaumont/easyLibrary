@@ -14,18 +14,31 @@ defineProps({
 <template>
   <div class="navbar">
     <div class="navigation">
-      <nuxt-link to="/" href="/">
+      <nuxt-link to="/" exact class="navigation-link">
         <img class="logo" src="/logo_easyLibrary.png" alt="easyLibrary" />
       </nuxt-link>
       <ul class="navigation-items">
-        <nuxt-link to="/" class="active">
-          <li class="navigation-item">Tableau de bord</li>
+        <nuxt-link
+          to="/"
+          exact
+          class="navigation-link"
+          :class="{ active: $route.path === '/' }"
+        >
+          Tableau de bord
         </nuxt-link>
-        <nuxt-link to="/livres">
-          <li class="navigation-item">Mes livres</li>
+        <nuxt-link
+          to="/livres"
+          class="navigation-link"
+          :class="{ active: $route.path === '/livres' }"
+        >
+          Mes livres
         </nuxt-link>
-        <nuxt-link to="/calendrier">
-          <li class="navigation-item">Calendrier</li>
+        <nuxt-link
+          to="/calendrier"
+          class="navigation-link"
+          :class="{ active: $route.path === '/calendrier' }"
+        >
+          Calendrier
         </nuxt-link>
       </ul>
     </div>

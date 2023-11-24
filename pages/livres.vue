@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import PageTitle from '~/components/PageTitle.vue';
+</script>
+
 <template>
-  <h1>Mes livres</h1>
+  <PageTitle />
 </template>
+
 <style></style>
