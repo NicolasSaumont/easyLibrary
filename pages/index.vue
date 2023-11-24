@@ -1,5 +1,10 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import PageTitle from '~/components/PageTitle.vue';
+
+const pageDashboardTitle = 'Tableau de bord';
+</script>
+
 <template>
-  <h1>Tableau de bord</h1>
+  <PageTitle :text="pageDashboardTitle" />
 </template>
 <style></style>
