@@ -1,5 +1,5 @@
 user(id, username, email, password)
-book(id, title, description, starting_date, ending_date, pages, score, #user(id), #author(id), #status(id), #tag(id))
+book(id, title, description, starting_date, ending_date, pages, grade, #user(id), #author(id), #status(id), #tag(id))
 tag(id, name)
 author(id, firstname, lastname)
 status(id, description, lastname)

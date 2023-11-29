@@ -1,19 +1,19 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../database');
 
-class Tag extends Model {}
+class Status extends Model {}
 
-Tag.init(
+Status.init(
   {
-    name: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize,
-    tableName: 'tag',
+    tableName: 'status',
   }
 );
 
-module.exports = Tag;
+module.exports = Status;

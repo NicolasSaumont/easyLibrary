@@ -1,27 +1,23 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../database');
 
-class User extends Model {}
+class Author extends Model {}
 
-User.init(
+Author.init(
   {
-    email: {
+    firstname: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    password: {
+    lastname: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
     sequelize,
-    tableName: 'user',
+    tableName: 'author',
   }
 );
 
-module.exports = User;
+module.exports = Author;

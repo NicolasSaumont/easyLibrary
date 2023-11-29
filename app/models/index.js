@@ -1,49 +1,59 @@
 const User = require('./user');
-const Question = require('./question');
+const Author = require('./author');
 const Tag = require('./tag');
-const Comment = require('./comment');
+const Book = require('./book');
+const Status = require('./status');
 
-//! Association user - commentaire
-// Un user peut créer plusieurs commentaires
-User.hasMany(Comment, {
-  as: 'commentsFromUser',
+//! Association book - user
+// Un user peut posséder plusieurs livres
+User.hasMany(Book, {
+  as: 'booksFromUser',
   foreignKey: 'user_id',
 });
 
-// Un commentaire est créée par un seul user
-Comment.belongsTo(User, {
-  as: 'userOfComment',
+// Un livre est possédé par un seul user
+Book.belongsTo(User, {
+  as: 'userOfBook',
   foreignKey: 'user_id',
 });
 
-//! Association commentaire - question
-// Un commentaire précise une question
-Comment.belongsTo(Question, {
-  as: 'questionOfComment',
-  foreignKey: 'question_id',
+//! Association book - author
+// Un livre est écrit par un auteur
+Book.belongsTo(Auhor, {
+  as: 'authorOfBook',
+  foreignKey: 'author_id',
 });
 
-// Une question peut être précisée par plusieurs commentaires
-Question.hasMany(Comment, {
-  as: 'commentsFromQuestion',
-  foreignKey: 'question_id',
+// Un auteur peut écrire plusieurs livres
+Author.hasMany(Book, {
+  as: 'booksFromAuthor',
+  foreignKey: 'author_id',
 });
 
-//! Association tag - question
-// Une question peut appartenir a plusieurs tags
-Question.belongsToMany(Tag, {
-  through: 'question_has_tag',
-  foreignKey: 'question_id',
-  otherKey: 'tag_id',
-  as: 'tagsFromQuestion',
-});
-
-// Un tag peut être appartenu par plusieurs questions
-Tag.belongsToMany(Question, {
-  through: 'question_has_tag',
+//! Association book - tag
+// Un livre peut appartenir à une seule catégorie
+Book.belongsTo(Tag, {
+  as: 'tagOfBook',
   foreignKey: 'tag_id',
-  otherKey: 'question_id',
-  as: 'questionsFromTags',
 });
 
-module.exports = { User, Question, Tag, Comment };
+// Une catégorie peut être appartenue par plusieurs livres
+Tag.hasMany(Book, {
+  as: 'booksFromTags',
+  foreignKey: 'tag_id',
+});
+
+//! Association book - status
+// Un livre peut avoir un seul statut
+Book.belongsTo(Status, {
+  as: 'statusOfBook',
+  foreignKey: 'status_id',
+});
+
+// Un statut peut être appartenu par plusieurs livres
+Status.hasMany(Book, {
+  as: 'booksFromStatus',
+  foreignKey: 'status_id',
+});
+
+module.exports = { User, Author, Tag, Book, Status };
