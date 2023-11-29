@@ -1,0 +1,9 @@
+<%- include('./partials/header.ejs') %>
+
+<% tags.forEach(tag => { %>
+    <a class="btn card_link card_link--tag" href="/tags/<%= tag.id %>">
+        <div class="card_tag card_tag--<%= tag.name.toLowerCase() %>"><%= tag.name %></div>
+    </a>
+<% }) %>
+
+<%- include('./partials/footer.ejs') %>

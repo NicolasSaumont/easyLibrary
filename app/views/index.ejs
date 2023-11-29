@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diotilogie</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <img
+          class="site-header__image"
+          src="/img/header-image.jpg"
+          alt="image de presentation"
+        />
+        <nav class="main-menu">
+          <a class="main-menu_item" href="/">
+            <img
+              class="main-menu__icon"
+              src="/img/icons/home.png"
+              alt="main menu home icon"
+            />
+            <p class="main-menu__text">Accueil</p>
+          </a>
+          <a class="main-menu_item" href="/questions">
+            <img
+              class="main-menu__icon"
+              src="/img/icons/questions.png"
+              alt="main menu tags icon"
+            />
+            <p class="main-menu__text">Questions</p>
+          </a>
+          <%if (!userMail){%>
+          <a class="main-menu_item" href="/login">
+            <img
+              class="main-menu__icon"
+              src="/img/icons/logIn.png"
+              alt="main menu login icon"
+            />
+            <p class="main-menu__text">Se connecter</p>
+          </a>
+          <%}else{%>
+          <a class="main-menu_item" href="/profil/<%= userID %>">
+            <img
+              class="main-menu__icon"
+              src="/img/icons/userProfile.png"
+              alt="main menu user profile icon"
+            />
+            <p class="main-menu__text">Mon profil</p>
+          </a>
+          <a class="main-menu_item" href="/logout">
+            <img
+              class="main-menu__icon"
+              src="/img/icons/logOut.png"
+              alt="main menu logout icon"
+            />
+            <p class="main-menu__text">Déconnection</p>
+          </a>
+          <%}%>
+        </nav>
+      </header>
+      <main>
+        <section class="section--presentation">
+          <h1 class="page-title">Diotilogie</h1>
+
+          <h2 class="page-subtitle">Demandez-vous "Pourquoi ?"</h2>
+
+          <p class="site-description">
+            Que ce soit pour comprendre les mystères de la science, les
+            curiosités de la nature ou les subtilités de la vie moderne, notre
+            plateforme propose des réponses claires et accessibles. Nourrissez
+            votre curiosité en explorant des explications détaillées sur une
+            variété de sujets. Plus besoin de laisser vos questions en suspend,
+            trouvez des réponses éclairantes en un instant. Simplifiez votre
+            recherche de connaissances avec notre site dédié au "Pourquoi" et
+            élargissez votre compréhension du monde qui vous entoure.
+          </p>
+        </section>
+
+        <section class="section--questions">
+          <img
+            class="main__banner main__banner--up"
+            src="/img/mainUpBanner.png"
+            alt="main up banner"
+          />
+
+          <div class="cards">
+            <% uniqueQuestions.forEach(question => { %>
+            <card class="card">
+              <div class="card_header">
+                <div class="card__tags-container">
+                  <% question.tagsFromQuestion.forEach(tag => { %>
+                  <a
+                    class="btn card_link card_link--tag"
+                    href="/tags/<%= tag.id %>"
+                  >
+                    <img
+                      class="card_tag card_tag--<%= tag.name.toLowerCase() %>"
+                      src="/img/icons/<%= tag.icon %>.png"
+                      alt="icone du tag <%= tag.name %>"
+                      title="<%= tag.name %>"
+                    />
+                  </a>
+                  <% }) %>
+                </div>
+                <div class="card_img-container">
+                  <a
+                    class="btn card_link card_link--question"
+                    href="/question/<%= question.id %>"
+                  >
+                    <img
+                      class="card_img"
+                      src="/img/img_articles/<%= question.picture %>.jpg"
+                      alt="picture showing <%= question.picture %>"
+                    />
+                    <h3 class="card_title"><%= question.title %></h3>
+                  </a>
+                </div>
+              </div>
+            </card>
+            <% }) %>
+          </div>
+          <div class="btn-container">
+            <a href="/questions">
+              <button>Voir toutes les questions</button>
+            </a>
+          </div>
+
+          <img
+            class="main__banner main__banner--down"
+            src="/img/mainDownBanner.png"
+            alt="main down banner"
+          />
+        </section>
+
+        <section class="section--tags">
+          <h3 class="section-title">Catégories</h3>
+
+          <div class="tags-container">
+            <% tags.forEach(tag => { %>
+            <div class="tags-container__tag">
+              <a
+                class="btn card_link section-tags__link-tag"
+                href="/tags/<%= tag.id %>"
+              >
+                <img
+                  class="tag tag--<%= tag.name.toLowerCase() %>"
+                  src="/img/icons/<%= tag.icon %>.png"
+                  alt="icone du tag <%= tag.name %>"
+                  title="<%= tag.name %>"
+                />
+              </a>
+              <p class="tag-text"><%= tag.name %></p>
+            </div>
+            <% }) %>
+          </div>
+        </section>
+
+        <%- include('./partials/footer.ejs') %>
+      </main>
+    </div>
+  </body>
+</html>
