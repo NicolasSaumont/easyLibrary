@@ -22,10 +22,15 @@ router.get('/authors/:authorId/books', authorController.getBooksByAuthor);
 
 // Tags url
 router.get('/tags', tagController.getAllTags);
+router.get('/tags/:tagId', tagController.getAllBooksFromTag);
 router.post('/tags/:tagId', tagController.postOneTag);
 router.patch('/tags/:tagId', tagController.editOneTag);
 router.delete('/tags/:tagId', tagController.deleteOneTag);
 router.get('/tags/:tagId/books', tagController.getBooksByTag);
+
+// Status url
+router.get('/status', statusController.getAllStatus);
+router.get('/status/:statusId', tatusController.getAllBooksFromStatus);
 
 // Users url
 router.post('/user', userController.postUser);
