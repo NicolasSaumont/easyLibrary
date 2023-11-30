@@ -4,12 +4,11 @@ const bookController = require('./controller/bookController');
 const authorController = require('./controller/authorController');
 const tagController = require('./controller/tagController');
 const userController = require('./controller/userController');
-const commentController = require('./controller/commentController');
 
 // Books url
-router.get('/books', bookController.getAllBooks);
+router.get('/books', bookController.getAllBooksFromUser);
+router.post('/books', bookController.postOneBook);
 router.get('/books/:bookId', bookController.getOneBook);
-router.post('/books/:bookId', bookController.postOneBook);
 router.patch('/books/:bookId', bookController.editOneBook);
 router.delete('/books/:bookId', bookController.deleteOneBook);
 
