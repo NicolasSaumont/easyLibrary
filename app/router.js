@@ -3,6 +3,7 @@ const router = express.Router();
 const bookController = require('./controller/bookController');
 const authorController = require('./controller/authorController');
 const tagController = require('./controller/tagController');
+const statusController = require('./controller/statusController');
 const userController = require('./controller/userController');
 
 // Books url
@@ -30,7 +31,7 @@ router.get('/tags/:tagId/books', tagController.getBooksByTag);
 
 // Status url
 router.get('/status', statusController.getAllStatus);
-router.get('/status/:statusId', tatusController.getAllBooksFromStatus);
+router.get('/status/:statusId', statusController.getAllBooksFromStatus);
 
 // Users url
 router.post('/user', userController.postUser);

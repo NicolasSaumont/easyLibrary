@@ -10,7 +10,7 @@
 | Utilisateur     | accéder au détail d'un livre de ma bibliothèque | de voir les informations de ce livre                                                         |
 | Utilisateur     | modifier les informations concernant mes livres | de maintenir une bibliothèque à jour                                                         |
 | Utilisateur     | supprimer un des livres de ma bibliothèque      | de maintenir une bibliothèque à jour                                                         |
-| Utilisateur     | accéder à mon calendrier                        | avoir une vue d'ensemble sur les liivres lus et à lire dans le temps                         |
+| Utilisateur     | accéder à mon calendrier                        | avoir une vue d'ensemble sur les livres lus et à lire dans le temps                          |
 | Utilisateur     | accéder à mon profil                            | avoir accès à mes informations personnelles                                                  |
 | Utilisateur     | modifier les informations de mon profil         | garder mes informations personnelles à jour                                                  |
 | Utilisateur     | supprimer mon profil                            | supprimer l'ensemble des informations me concernant sur l'application                        |
